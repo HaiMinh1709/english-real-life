@@ -1,1 +1,18 @@
-{"name":"English Real Life","short_name":"English Real Life","start_url":"./","scope":"./","display":"standalone","background_color":"#f5f0e6","theme_color":"#f5f0e6","description":"Real-life English conversation and vocabulary practice."}
+{
+    "name": "English Real Life",
+    "short_name": "English Real Life",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#f5f0e6",
+    "theme_color": "#f5f0e6",
+    "description": "Real-life English conversation and vocabulary practice.",
+    "icons": [
+    {
+        "src": "./app-icon.jpg",
+        "sizes": "1254x1254",
+        "type": "image/jpeg",
+        "purpose": "any"
+    }
+]
+}
