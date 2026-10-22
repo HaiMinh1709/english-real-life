@@ -1,0 +1,9 @@
+{
+  "name": "English Vocabulary · Real Life",
+  "short_name": "Vocabulary",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f0e7",
+  "theme_color": "#f5f0e7",
+  "description": "Practical English vocabulary typing and review app."
+}

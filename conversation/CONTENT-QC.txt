@@ -1,0 +1,11 @@
+ENGLISH FOR REAL LIFE V2.0 - FINAL SIMPLE
+
+Lessons: 162
+Dialogues rewritten from abstract/repeated templates: 118
+Style target: about 75% simple everyday spoken English; remaining lessons retain richer language for progression.
+Long dialogues retained.
+Useful Expressions refreshed in rewritten lessons to favor short reusable spoken sentences.
+Vietnamese normalized to Unicode NFC.
+IPA regenerated for rewritten lines with US English phoneme output.
+
+Design principle: Simple -> Natural -> Reusable -> Automatic.

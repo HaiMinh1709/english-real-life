@@ -1,0 +1,9 @@
+{
+  "name": "English for Real Life",
+  "short_name": "English Real Life",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4efe7",
+  "theme_color": "#f4efe7",
+  "description": "Practical English conversation, listening, shadowing and vocabulary review."
+}

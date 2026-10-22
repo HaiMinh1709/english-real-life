@@ -1,0 +1,1 @@
+Browser Back/Forward now navigates between screens inside English for Real Life before leaving the site.
