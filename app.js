@@ -49,7 +49,7 @@ function home(){
   <div class="section-title"><h2>Topics</h2><button class="textbtn" onclick="browse()">Browse all</button></div>
   <section class="topic-grid">${topicCodes().map(t=>`<div class="card topic" onclick="topic('${t}')"><div class="eyebrow">${t}</div><b>${topicLabel(t)}</b><small>${LESSONS.filter(x=>x.topic===t).length} lessons</small></div>`).join('')}</section></main>`}
 function browse(){
-  stopAll();app.innerHTML=`<main class="wrap"><div class="toprow">${navTitle('Browse lessons','120 practical conversations')}${settingsButton()}</div><div class="searchbar"><input id="q" placeholder="Search topic, lesson or situation…" oninput="filterBrowse()"><select id="tf" onchange="filterBrowse()"><option value="">All topics</option>${topicCodes().map(t=>`<option>${t}</option>`).join('')}</select></div><div id="results"></div></main>`;filterBrowse();
+  stopAll();app.innerHTML=`<main class="wrap"><div class="toprow">${navTitle('Browse lessons','180 practical conversations')}${settingsButton()}</div><div class="searchbar"><input id="q" placeholder="Search topic, lesson or situation…" oninput="filterBrowse()"><select id="tf" onchange="filterBrowse()"><option value="">All topics</option>${topicCodes().map(t=>`<option>${t}</option>`).join('')}</select></div><div id="results"></div></main>`;filterBrowse();
 }
 function filterBrowse(){
   const q=(document.querySelector('#q')?.value||'').toLowerCase(),tf=document.querySelector('#tf')?.value||'';
