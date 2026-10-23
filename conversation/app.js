@@ -85,7 +85,8 @@ function preferredVoice(speaker='A'){
 }
 function utter(text,mode='normal',speaker='A',onend=null){
   const u=new SpeechSynthesisUtterance(text),v=preferredVoice(speaker);if(v){u.voice=v;u.lang=v.lang}else u.lang='en-US';
-  u.rate=mode==='slow'?state.settings.rateSlow:state.settings.rateNormal;u.pitch=speaker==='A'?1.02:.98;if(onend)u.onend=onend;return u;
+  const isiOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+  u.rate=mode==='slow'?state.settings.rateSlow:(isiOS?state.settings.rateNormal*1.15:state.settings.rateNormal);u.pitch=speaker==='A'?1.02:.98;if(onend)u.onend=onend;return u;
 }
 function speak(text,mode='normal',speaker='A'){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();speechSynthesis.speak(utter(text,mode,speaker))}
 function stopAll(){dialogueRun++;practiceRun++;if(speakTimer){clearTimeout(speakTimer);speakTimer=null}speechSynthesis.cancel();document.querySelectorAll('.playing,.your-turn').forEach(x=>x.classList.remove('playing','your-turn'))}
