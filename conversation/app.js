@@ -50,9 +50,38 @@ function loadVoices(){voices=speechSynthesis.getVoices().filter(v=>/^en(-|_)/i.t
 loadVoices(); if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=loadVoices;
 function voiceByURI(uri){loadVoices();return voices.find(x=>x.voiceURI===uri)||null}
 function preferredVoice(speaker='A'){
-  loadVoices(); let uri=speaker==='B'?state.settings.voiceBURI:state.settings.voiceAURI, v=voiceByURI(uri);if(v)return v;
-  if(speaker==='A') return voices.find(x=>/Clara Online \(Natural\)/i.test(x.name))||voices.find(x=>/^en-CA/i.test(x.lang)&&/clara|female/i.test(x.name))||voices.find(x=>/^en-US/i.test(x.lang)&&/zira|female/i.test(x.name))||voices[0]||null;
-  return voices.find(x=>/Liam Online \(Natural\)/i.test(x.name))||voices.find(x=>/^en-CA/i.test(x.lang)&&/liam|male/i.test(x.name))||voices.find(x=>/^en-US/i.test(x.lang)&&/mark|david|male/i.test(x.name))||voices[0]||null;
+  loadVoices();
+
+  let uri=speaker==='B'
+    ? state.settings.voiceBURI
+    : state.settings.voiceAURI;
+
+  let saved=voiceByURI(uri);
+  if(saved) return saved;
+
+  const isiOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+
+  if(isiOS){
+    if(speaker==='A'){
+      return voices.find(v=>/Samantha/i.test(v.name))
+        || voices.find(v=>/en-US/i.test(v.lang))
+        || voices[0];
+    }else{
+      return voices.find(v=>/Daniel/i.test(v.name))
+        || voices.find(v=>/en-GB/i.test(v.lang))
+        || voices.find(v=>/en-US/i.test(v.lang))
+        || voices[0];
+    }
+  }
+
+  if(speaker==='A')
+    return voices.find(v=>/Clara Online \(Natural\)/i.test(v.name))
+      || voices.find(v=>/en-CA/i.test(v.lang))
+      || voices[0];
+
+  return voices.find(v=>/Liam Online \(Natural\)/i.test(v.name))
+    || voices.find(v=>/en-CA/i.test(v.lang))
+    || voices[0];
 }
 function utter(text,mode='normal',speaker='A',onend=null){
   const u=new SpeechSynthesisUtterance(text),v=preferredVoice(speaker);if(v){u.voice=v;u.lang=v.lang}else u.lang='en-US';
